@@ -133,18 +133,18 @@ function creaGriglia(numCaselle, gridStyle){
         
         function(){
             
-            for(let i = 0; i < listBombs.length; i++){
-                console.log(newBox);
-                console.log(listBombs[i]);
-                newBox.getElementsByTagname(`${listBombs[i]}`); 
-                newBox.classList.add("bomb-box");
-                // newBox.document.getElementsByTagname(listBombs[i]);
-                // newBox = listBombs[i];
-                // newBox.document.querySelectorAll(listBombs).classList.add("bomb-box");
                 
-            }
                 if (listBombs.includes(parseInt(newSpan.innerHTML))){
-                 
+                    for(let i = 0; i < listBombs.length; i++){
+                        console.log(newBox);
+                        console.log(listBombs[i]);
+                        newBox.getElementsByTagname(`${listBombs[i]}`); 
+                        newBox.classList.add("bomb-box");
+                        // newBox.document.getElementsByTagname(listBombs[i]);
+                        // newBox = listBombs[i];
+                        // newBox.document.querySelectorAll(listBombs).classList.add("bomb-box");
+                        
+                    }
                     // alert("hai perso! il tuo punteggio è: " + punteggio);
                     punteggio = 0;
                     // gridElement.innerHTML = ""; 
