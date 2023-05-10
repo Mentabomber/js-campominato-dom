@@ -135,9 +135,7 @@ function creaGriglia(numCaselle, gridStyle){
             console.log(numCaselle);
             console.log(parseInt(newSpan.innerHTML));
             
-            let controlloBox = document.querySelectorAll("div.easy-grid-box span");
-            let index = 0;
-            console.log(parseInt(controlloBox[index].innerHTML));
+            let controlloBox = document.querySelectorAll("div.easy-grid-box span, div.hard-grid-box span, div.very-hard-grid-box span");
             console.log(controlloBox);
             
            
