@@ -1,0 +1,100 @@
+/* regole generali */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header{
+    height: 100px;
+}
+.container{
+    width: 1080px;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+}
+.header-container-left,
+.header-container-right
+{
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100%
+}
+.header-container-right{
+    justify-content: end;
+}
+img{
+    width: 100px;
+    height: 100px;
+}
+
+button{
+    height: 25px;
+    width: 40px;
+}
+#button-play{
+
+}
+#difficulty{
+
+}
+main{
+    background-color: rgb(127,255,212);
+    height: calc(100% - 150px);
+}
+
+#contenitore{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 50px;
+    width: 1080px;
+    margin: auto;
+
+}
+
+#grid{
+    height: 500px;
+    width: 500px;
+}
+
+.easy-grid-box{
+    width: calc(100% / 10);
+    height: calc(100% / 10);
+    border: 3px solid white;
+    cursor: pointer;
+}
+.hard-grid-box{
+    width: calc(100% / 9);
+    height: calc(100% / 9);
+    border: 3px solid white;
+    cursor: pointer;
+}
+.very-hard-grid-box{
+    width: calc(100% / 7);
+    height: calc(100% / 7);
+    border: 3px solid white;
+    cursor: pointer;
+}
+.hidden-grid{
+    display: none;
+}
+.show-grid{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.element-selected{
+    background-color: aqua;
+}
+footer{
+    height: 50px;
+}
+
