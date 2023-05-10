@@ -82,6 +82,9 @@ main{
     border: 3px solid white;
     cursor: pointer;
 }
+.bomb-box{
+    background-color: red;
+}
 .hidden-grid{
     display: none;
 }
