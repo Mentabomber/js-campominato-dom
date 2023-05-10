@@ -55,10 +55,6 @@ function(){
     for(let i = 0; i < boxes.length; i++){
 
         gridElement.append(boxes[i]);
-
-        if (boxes[i] <= 16){
-            boxes.classList.add("bomb-box");
-        }
         
     }
     
@@ -70,6 +66,8 @@ function creaGriglia(numCaselle, gridStyle){
 
     const boxes = [];
 
+    let punteggio = 0;
+
     for (let i = 0; i < numCaselle; i++) {
 
         const newBox = boxCreation("div", gridStyle);
@@ -79,12 +77,28 @@ function creaGriglia(numCaselle, gridStyle){
         newBox.append(newSpan);
     
         newSpan.append(i + 1);
-    
+        
+        console.log(parseInt(newSpan.innerHTML));
+
+       
+        
         newBox.addEventListener("click",
         
         function(){
+            
+            if (parseInt(newSpan.innerHTML) <= 16){
+                newBox.classList.add("bomb-box");
+                alert("hai perso! il tuo punteggio è: " + punteggio)
+
+                
+            }
+            else{
+                newBox.classList.add("flower-box");
+                punteggio = punteggio + 1;
+                console.log(punteggio);
     
-            this.classList.add("element-selected");
+            }
+           
             console.log(i + 1);
         
         }

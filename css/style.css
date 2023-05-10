@@ -85,6 +85,10 @@ main{
 .bomb-box{
     background-color: red;
 }
+
+.flower-box{
+    background-color: aqua;
+}
 .hidden-grid{
     display: none;
 }
@@ -94,9 +98,7 @@ main{
     justify-content: center;
     align-items: center;
 }
-.element-selected{
-    background-color: aqua;
-}
+
 footer{
     height: 50px;
 }
