@@ -110,7 +110,7 @@ function creaGriglia(numCaselle, gridStyle){
 
     for (let i = 0; i < numCaselle; i++) {
 
-        const newBox = boxCreation("div", gridStyle);
+        let newBox = boxCreation("div", gridStyle);
     
         const newSpan = document.createElement("span");
     
@@ -132,28 +132,56 @@ function creaGriglia(numCaselle, gridStyle){
         newBox.addEventListener("click",
         
         function(){
+            console.log(numCaselle);
+            console.log(parseInt(newSpan.innerHTML));
             
-                
-                if (listBombs.includes(parseInt(newSpan.innerHTML))){
-                    for(let i = 0; i < listBombs.length; i++){
-                        console.log(newBox);
-                        console.log(listBombs[i]);
-                        newBox.getElementsByTagname(`${listBombs[i]}`); 
-                        newBox.classList.add("bomb-box");
+            let controlloBox = document.querySelectorAll("div.easy-grid-box span");
+            let index = 0;
+            console.log(parseInt(controlloBox[index].innerHTML));
+            console.log(controlloBox);
+            
+           
+            // for(let i = 0; i < numCaselle; i++){
+                if((listBombs.includes(parseInt(newSpan.innerHTML)))){
+                    newBox.classList.add("bomb-box");
+                    for(let i = 0; i < numCaselle; i++){
+                        // if (parseInt(controlloBox[i].innerHTML) == parseInt(listBombs[index])){
+                        //     newBox.classList.add("bomb-box");
+                        //     index++;
+                        //     i = 0;
+                        // }
+                        if(listBombs.includes(i + 1)){
+                            controlloBox[i].parentElement.classList.add("bomb-box");
+                            
+                        }
+                        // console.log(i);
+                        // console.log(index);
+        
+                    }
+
+                    alert("hai perso! il tuo punteggio è: " + punteggio);
+                    punteggio = 0;
+                    // gridElement.innerHTML = ""; 
+                }
+                // if (listBombs.includes(parseInt(newSpan.innerHTML))){
+                    // for(let i = 0; i < listBombs.length; i++){
+                        // console.log(newBox);
+                        // console.log(listBombs[i]);
+                        // newBox.getElementsByTagname(`${listBombs[i]}`); 
+                        // if(boxSelector.innerHTML("") == ){}
+                        // let boxSelector = document.getElementsByClassName("easy-grid-box");
+                        // console.log(boxSelector);
+                        // newBox.classList.add("bomb-box");
                         // newBox.document.getElementsByTagname(listBombs[i]);
                         // newBox = listBombs[i];
                         // newBox.document.querySelectorAll(listBombs).classList.add("bomb-box");
                         
-                    }
-                    // alert("hai perso! il tuo punteggio è: " + punteggio);
-                    punteggio = 0;
-                    // gridElement.innerHTML = ""; 
-                    // per far terminare la partita
+                    // }
 
-    
-                    
-                }
+                    // per far terminare la partita
+                // }
                 else if(punteggio == (boxes.length - listBombs.length) - 1){
+                    punteggio = punteggio + 1;
                     alert("hai vinto complimenti!");
                     punteggio = 0;
                     gridElement.innerHTML = ""; 
@@ -161,7 +189,7 @@ function creaGriglia(numCaselle, gridStyle){
                 else{
                     newBox.classList.add("flower-box");
                     punteggio = punteggio + 1;
-                    console.log(punteggio);
+                    // console.log(punteggio);
                 }
 
                 punteggioAttuale.innerHTML =`il tuo punteggio attuale è :${punteggio}`;
@@ -170,8 +198,8 @@ function creaGriglia(numCaselle, gridStyle){
 
                 // console.log(i + 1);
         
-        
-        }
+            }
+        // }
         ) 
         boxes.push(newBox);
     }
