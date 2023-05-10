@@ -153,12 +153,11 @@ function creaGriglia(numCaselle, gridStyle){
                     newBox.classList.add("flower-box");
                     punteggio = punteggio + 1;
                     console.log(punteggio);
-        
                 }
 
                 punteggioAttuale.innerHTML =`il tuo punteggio attuale è :${punteggio}`;
                
-
+                
 
                 // console.log(i + 1);
         
