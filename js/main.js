@@ -15,7 +15,7 @@ let gridElement = document.getElementById("grid");
 let index, contatore, boxDifficulty;
 
 
-
+var difficulty = document.getElementById("difficulty").value;
 // var selectedDifficulty;
 
 
@@ -30,6 +30,39 @@ function boxCreation (elementType, className){
     
 }
 
+function createArray(elementsNum){
+
+
+    console.log(difficulty);
+    const array = [];
+    let rng;
+
+    while(array.length < elementsNum){
+
+        rng = randomNumberGenerator(1 ,difficulty);
+        
+        if(!array.includes(rng)){
+            array.push(rng);
+        }
+        
+    }
+    return array;
+}
+
+function randomNumberGenerator(min, gridStyle){
+    if(gridStyle == "Easy"){
+        max = 100;
+    }
+    else if (gridStyle == "Hard"){
+        max = 81;
+    }
+    else if (gridStyle == "Very Hard"){
+        max = 49;
+    }
+
+    return Math.floor(Math.random() * (max + min));
+}
+
 const buttonInteractor = document.getElementById("button-play");
 
 buttonInteractor.addEventListener("click",
@@ -39,7 +72,7 @@ function(){
     gridElement.replaceChildren();
     // gridElement.innerHTML = ""; alternativa
 
-    console.log(difficulty);
+    // console.log(difficulty);
     
     let boxes;
 
@@ -67,6 +100,12 @@ function creaGriglia(numCaselle, gridStyle){
     const boxes = [];
 
     let punteggio = 0;
+    
+    let listBombs = createArray(16);
+
+    console.log(listBombs);
+
+
 
     for (let i = 0; i < numCaselle; i++) {
 
@@ -75,31 +114,37 @@ function creaGriglia(numCaselle, gridStyle){
         const newSpan = document.createElement("span");
     
         newBox.append(newSpan);
-    
+        // console.log(createArray(index));
+        
+        
+
+       
+
         newSpan.append(i + 1);
         
         console.log(parseInt(newSpan.innerHTML));
-
-       
         
         newBox.addEventListener("click",
         
         function(){
             
-            if (parseInt(newSpan.innerHTML) <= 16){
-                newBox.classList.add("bomb-box");
-                alert("hai perso! il tuo punteggio è: " + punteggio)
-
                 
-            }
-            else{
-                newBox.classList.add("flower-box");
-                punteggio = punteggio + 1;
-                console.log(punteggio);
+                
+                if (listBombs.includes(parseInt(newSpan.innerHTML))){
+                    newBox.classList.add("bomb-box");
+                    alert("hai perso! il tuo punteggio è: " + punteggio)
     
-            }
-           
-            console.log(i + 1);
+                    
+                }
+                else{
+                    newBox.classList.add("flower-box");
+                    punteggio = punteggio + 1;
+                    console.log(punteggio);
+        
+                }
+               
+                // console.log(i + 1);
+        
         
         }
         ) 
@@ -187,50 +232,3 @@ function creaGriglia(numCaselle, gridStyle){
 //     gridElementVeryHard.append(newGrid);
 // }
 
-function createArray(elementsNum, gridStyle){
-
-    var difficulty = document.getElementById("difficulty").value;
-
-    const bombsArray = [];
-
-    const flowersArray = [];
-
-    for(let i = 0; i = elementsNum; i++){
-
-        let rngBombs = randomNumberGenerator(1 ,"" , 16);
-
-        let rngFlowers = randomNumberGenerator(1,difficulty, );
-
-        if(bombsArray.length !== 16){
-            bombsArray.push(rngBombs);
-        }
-        
-        if (flowersArray.length !== elementsNum){
-            flowersArray.push(rngFlowers);
-        }
-            
-        
-
-        
-
-        
-
-
-    }
-}
-
-function randomNumberGenerator (min, gridStyle, userNumInsertion){
-    if(gridStyle == "easy-grid-box"){
-        max = 100;
-    }
-    else if (gridStyle == "hard-grid-box"){
-        max = 81;
-    }
-    else if (gridStyle == "very-hard-grid-box"){
-        max = 49;
-    }
-    else{
-        max = userNumInsertion;
-    }
-    return Math.floor(Math.random() * (max + min) - 1);
-}
