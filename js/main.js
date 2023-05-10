@@ -75,6 +75,7 @@ function(){
     // console.log(difficulty);
     
     let boxes;
+    
 
     if(difficulty == "Easy"){
         boxes = creaGriglia(100, "easy-grid-box" );
@@ -123,18 +124,30 @@ function creaGriglia(numCaselle, gridStyle){
         newSpan.append(i + 1);
         
         console.log(parseInt(newSpan.innerHTML));
+
+        let punteggioAttuale = document.getElementById("punteggio");
+        
+        
         
         newBox.addEventListener("click",
         
         function(){
             
-                
+            
                 
                 if (listBombs.includes(parseInt(newSpan.innerHTML))){
                     newBox.classList.add("bomb-box");
-                    alert("hai perso! il tuo punteggio è: " + punteggio)
+                    alert("hai perso! il tuo punteggio è: " + punteggio);
+                    punteggio = 0;
+                    gridElement.innerHTML = ""; 
+                    // per far terminare la partita
     
                     
+                }
+                else if(punteggio == (boxes.length - listBombs.length) - 1){
+                    alert("hai vinto complimenti!");
+                    punteggio = 0;
+                    gridElement.innerHTML = ""; 
                 }
                 else{
                     newBox.classList.add("flower-box");
@@ -142,7 +155,11 @@ function creaGriglia(numCaselle, gridStyle){
                     console.log(punteggio);
         
                 }
+
+                punteggioAttuale.innerHTML =`il tuo punteggio attuale è :${punteggio}`;
                
+
+
                 // console.log(i + 1);
         
         

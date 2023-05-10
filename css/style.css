@@ -37,6 +37,10 @@ button{
     height: 25px;
     width: 40px;
 }
+#punteggio{
+    border: 1px solid black;
+    padding: 2px;
+}
 #button-play{
 
 }
@@ -88,6 +92,7 @@ main{
 
 .flower-box{
     background-color: aqua;
+    pointer-events: none;
 }
 .hidden-grid{
     display: none;
