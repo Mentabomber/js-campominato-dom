@@ -67,7 +67,7 @@ const buttonInteractor = document.getElementById("button-play");
 
 buttonInteractor.addEventListener("click",
 function(){
-    var difficulty = document.getElementById("difficulty").value;
+    difficulty = document.getElementById("difficulty").value;
 
     gridElement.replaceChildren();
     // gridElement.innerHTML = ""; alternativa
@@ -117,9 +117,6 @@ function creaGriglia(numCaselle, gridStyle){
         newBox.append(newSpan);
         // console.log(createArray(index));
         
-        
-
-       
 
         newSpan.append(i + 1);
         
@@ -150,7 +147,7 @@ function creaGriglia(numCaselle, gridStyle){
                         // }
                         if(listBombs.includes(i + 1)){
                             controlloBox[i].parentElement.classList.add("bomb-box");
-                            
+                            console.log(listBombs);
                         }
                         // console.log(i);
                         // console.log(index);
